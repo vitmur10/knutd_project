@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма для студента</title>
+</head>
+<body>
+    {% block content %}
+        <h1>Форма для студента</h1>
+        <form method="post" id="student-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="submit" value="Зберегти">
+        </form>
+
+        <div id="parent-form" style="display: none;">
+            <h2>Дані для батьків</h2>
+            <form method="post" >
+                {% csrf_token %}
+                {{ parent_form.as_p }}
+                <input type="submit" value="Зберегти">
+            </form>
+        </div>
+
+        <script>
+            document.getElementById('id_birthdate').addEventListener('change', function () {
+                var birthdate = new Date(this.value);
+                var today = new Date();
+                var age = today.getFullYear() - birthdate.getFullYear();
+
+                if (age < 18) {
+                    document.getElementById('parent-form').style.display = 'block';
+                } else {
+                    document.getElementById('parent-form').style.display = 'none';
+                }
+            });
+        </script>
+    {% endblock %}
+
+</body>
+</html>
+
+
+
