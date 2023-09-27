@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Hostel(models.Model):
@@ -39,7 +41,7 @@ class Student(models.Model):
     ]
     IPI = models.CharField(max_length=255, verbose_name="ПІП")
     date_of_birth = models.DateField(verbose_name="Дата народження")
-    parents = models.ForeignKey(StudentParens, on_delete=models.CASCADE, verbose_name="Батьки")
+    parents = models.ForeignKey(StudentParens, on_delete=models.CASCADE, null=True, verbose_name="Батьки")
     group = models.CharField(max_length=10, verbose_name="Група")
     street = models.CharField(max_length=255, verbose_name="Вулиця")
     house = models.CharField(max_length=10, verbose_name="Дім")
@@ -61,3 +63,8 @@ class Student(models.Model):
     class Meta:
         verbose_name = "Студент"
         verbose_name_plural = "Студенти"
+
+
+@receiver(post_save, sender=Student)
+def process_student_data(sender, instance, **kwargs):
+    pass

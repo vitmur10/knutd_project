@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block name %}Гуртожитки{% endblock %}
+
+    {% block content %}
+        {% for a in hostel %}
+            {{ a.hostel_number }}
+            {{ a.residents }}
+            {{ a.address }}
+            {{ a.mobile_number }}
+        {% endfor %}
+    {% endblock %}

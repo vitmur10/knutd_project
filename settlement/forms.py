@@ -5,7 +5,7 @@ from .models import Student, StudentParens
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['IPI', 'group', 'street', 'house', 'room', 'hostel', 'faculty', 'course', 'learning_from',
+        fields = ['IPI', 'group', 'street', 'hostel', 'faculty', 'course', 'learning_from',
                   'training_to', 'passport_series', 'passport_number', 'passport_issued', 'identification_code',
                   'date_of_birth']
 
