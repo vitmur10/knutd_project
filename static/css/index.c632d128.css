@@ -1,0 +1,66 @@
+.card[data-astro-cid-dohjnao5] {
+    background: #F4F7FE;
+    border-radius: 10px;
+    padding: 26px;
+    color: #2b3674;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    font-family: Poppins, sans-serif
+}
+
+.card_btn[data-astro-cid-dohjnao5] {
+    display: inline-block;
+    padding: 10px 40px;
+    border-radius: 4px;
+    background: #4318FF;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    min-height: 44px
+}
+
+.h2[data-astro-cid-dohjnao5] {
+    font-size: 24px;
+    letter-spacing: -.48px;
+    margin-bottom: -10px
+}
+
+.h4[data-astro-cid-dohjnao5] {
+    font-size: 16px;
+    letter-spacing: -.32px
+}
+
+.description[data-astro-cid-dohjnao5] {
+    color: #a3aed0;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: normal
+}
+
+.info[data-astro-cid-dohjnao5] {
+    color: #a3aed0;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: normal
+}
+
+.phone[data-astro-cid-dohjnao5]:before {
+    content: url(/_astro/phone.25db9f0c.svg);
+    vertical-align: middle;
+    margin-right: 12px
+}
+
+.address[data-astro-cid-dohjnao5]:before {
+    content: url(/_astro/phone.25db9f0c.svg);
+    vertical-align: middle;
+    margin-right: 12px
+}
+
+.wrapper[data-astro-cid-ili6pcsu] {
+    width: 90%;
+    margin: 40px auto 0;
+    border-radius: 20px;
+    background: #FFF;
+    padding: 48px
+}

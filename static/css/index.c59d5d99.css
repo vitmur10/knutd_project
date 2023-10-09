@@ -1,0 +1,57 @@
+.wrapper[data-astro-cid-j7pv25f6] {
+    width: 90%;
+    margin: 0 auto
+}
+
+.floors[data-astro-cid-j7pv25f6] li[data-astro-cid-j7pv25f6] {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background: #fff;
+    color: #2b3674;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 14px;
+    font-family: Poppins, sans-serif
+}
+
+.floors[data-astro-cid-j7pv25f6] li[data-astro-cid-j7pv25f6]:first-child {
+    background: #4318FF;
+    color: #fff
+}
+
+.dormitory_number[data-astro-cid-j7pv25f6] {
+    padding: 0 40px;
+    border-radius: 5px;
+    color: #2b3674;
+    background: #fff;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: -.48px
+}
+
+.info__item[data-astro-cid-j7pv25f6] {
+    color: #2b3674;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px
+}
+
+.cell[data-astro-cid-j7pv25f6] {
+    padding: 10px 20px;
+    border-radius: 4px;
+    background: #FFF;
+    font-family: Poppins, sans-serif;
+    color: #2b3674;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center
+}
