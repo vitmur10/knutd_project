@@ -2,11 +2,27 @@
 
 {% block name %}Гуртожитки{% endblock %}
 
-    {% block content %}
-        {% for a in hostel %}
-            {{ a.hostel_number }}
-            {{ a.residents }}
-            {{ a.address }}
-            {{ a.mobile_number }}
-        {% endfor %}
-    {% endblock %}
+{% block content %}
+    {% for a in hostel %}
+        <div class="wrapper" data-astro-cid-ili6pcsu>
+            <div class="card mb-[20px]" data-astro-cid-dohjnao5>
+                <div class="flex justify-between" data-astro-cid-dohjnao5><h2 class="number h2 mb-[20px]"
+                                                                              data-astro-cid-dohjnao5>Гуртожиток
+                    №{{ a.hostel_number }}</h2><a
+                        href="/" class="card_btn" data-astro-cid-dohjnao5>Обрати</a></div>
+                <div class="flex" data-astro-cid-dohjnao5>
+                    <div class="mr-[45px]" data-astro-cid-dohjnao5><h4 class="h4" data-astro-cid-dohjnao5>Хто проживає в
+                        гуртожитку:</h4>
+                        <p class="description mt-[18px] max-h-[100px] max-w-[241px]"
+                           data-astro-cid-dohjnao5>{{ a.residents }}</p></div>
+                    <div data-astro-cid-dohjnao5><h4 class="h4" data-astro-cid-dohjnao5>Адреса гуртожитку та
+                        контакти:</h4>
+                        <div class="info" data-astro-cid-dohjnao5><p class="address mt-[18px]"
+                                                                     data-astro-cid-dohjnao5>{{ a.address }}</p>
+                            <p class="phone mt-[20px]" data-astro-cid-dohjnao5>{{ a.mobile_number }}</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
