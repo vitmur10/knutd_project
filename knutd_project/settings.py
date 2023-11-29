@@ -25,8 +25,11 @@ SECRET_KEY = 'django-insecure-h6rn1d#quwcc2b4@tkc^=g@jmqr%*$ez-#&*7pqdx8w!(&%&lm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1', 'pkbot.knutd.edu.ua']
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1:8000',
+    'https://pkbot.knutd.edu.ua',
+]
 
 # Application definition
 
@@ -37,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'analytic',
+    'cafe_student',
+    'question',
     'settlement',
 ]
 
@@ -76,8 +82,12 @@ WSGI_APPLICATION = 'knutd_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Infotron_bd',
+        'USER': 'vitmur',
+        'PASSWORD': 'uaknutd',
+        'HOST': 'postgres',  # Використовуйте ім'я контейнера як хост
+        'PORT': '5432',
     }
 }
 
@@ -104,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk'
 
 TIME_ZONE = 'UTC'
 
@@ -115,8 +125,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-STATIC_URL = 'static/'
+STATIC_ROOT = '/static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 

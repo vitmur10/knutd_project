@@ -2,19 +2,356 @@
 
 {% block name %}Форма для студента{% endblock %}
 
-    {% block content %}
-        <h1>Форма для студента</h1>
-        <form method="post" id="student-form">
-            {% csrf_token %}
-            {{ form.as_p }}
+{% block content %}
+    <div class="selected_room" data-astro-cid-xb3inwvi><h1 class="title" data-astro-cid-xb3inwvi>Обраний гуртожиток
+        та
+        кімната:</h1>
+        <button class="selected_room_btn" data-astro-cid-xb3inwvi>Змінити</button>
+        <div class="room_data" data-astro-cid-xb3inwvi>
+            <div class="room_data_item" data-astro-cid-xb3inwvi><p data-astro-cid-xb3inwvi>Гуртожиток:</p><span
+                    data-astro-cid-xb3inwvi>№7</span></div>
+            <div class="room_data_item" data-astro-cid-xb3inwvi><p data-astro-cid-xb3inwvi>Поверх:</p><span
+                    data-astro-cid-xb3inwvi>1</span></div>
+            <div class="room_data_item" data-astro-cid-xb3inwvi><p data-astro-cid-xb3inwvi>Клітка:</p><span
+                    data-astro-cid-xb3inwvi>2</span></div>
+            <div class="room_data_item" data-astro-cid-xb3inwvi><p data-astro-cid-xb3inwvi>Блок:</p><span
+                    data-astro-cid-xb3inwvi>110</span>
+                <div class="gender" data-astro-cid-xb3inwvi>
+                    <div class="female" data-astro-cid-xb3inwvi>Жіночий блок</div>
+                    <div class="male hidden" data-astro-cid-xb3inwvi>Чоловічий блок</div>
+                </div>
+            </div>
+            <div class="room_data_item" data-astro-cid-xb3inwvi><p data-astro-cid-xb3inwvi>Кімната:</p><span
+                    data-astro-cid-xb3inwvi>A</span></div>
+        </div>
+    </div>
 
-            {{ parent_form.as_p }}
-            <input type="submit" value="Зберегти">
+    <div class="files_container" data-astro-cid-xb3inwvi>
+        <div class="files_body" data-astro-cid-xb3inwvi>
+            <form class="files_form" data-astro-cid-xb3inwvi action="{% url 'settlement:add_student' %}" method="post" ><h1 class="title" data-astro-cid-xb3inwvi >Форма для
+                студентів</h1>
+                {% csrf_token %}
+                <div class="form_wrapper" data-astro-cid-xb3inwvi>
+                    <div data-astro-cid-xb3inwvi>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="PIP"
+                                                                              data-astro-cid-xb3inwvi>ПІП</label><input
+                                type="text" name="PIP" id="PIP" placeholder="ПІП" data-astro-cid-xb3inwvi>
+                        </div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="gender" data-astro-cid-xb3inwvi>Дата
+                            народження</label><select name="gender" id="gender" data-astro-cid-xb3inwvi>
+                            <option value="" disabled selected data-astro-cid-xb3inwvi>Стать</option>
+                            <option value="female" data-astro-cid-xb3inwvi>Жінка</option>
+                            <option value="male" data-astro-cid-xb3inwvi>Чоловік</option>
+                            <option value="other" data-astro-cid-xb3inwvi>Інше</option>
+                        </select></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="group"
+                                                                              data-astro-cid-xb3inwvi>Група</label><input
+                                type="text" name="group" id="group" placeholder="Група" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="street"
+                                                                              data-astro-cid-xb3inwvi>Вулиця</label><input
+                                type="text" name="street" id="street" placeholder="Вулиця" data-astro-cid-xb3inwvi>
+                        </div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="house"
+                                                                              data-astro-cid-xb3inwvi>Дім</label><input
+                                type="text" name="house" id="house" placeholder="Дім" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="room"
+                                                                              data-astro-cid-xb3inwvi>Кімната</label><input
+                                type="text" name="room" id="room" placeholder="Кімната" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="dormitory" data-astro-cid-xb3inwvi>Гуртожиток</label><input
+                                type="text" name="dormitory" id="dormitory" placeholder="Гуртожиток"
+                                data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="faculty" data-astro-cid-xb3inwvi>Факультет</label><input
+                                type="text" name="faculty" id="faculty" placeholder="Факультет" data-astro-cid-xb3inwvi>
+                        </div>
+                    </div>
+                    <div data-astro-cid-xb3inwvi>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="course"
+                                                                              data-astro-cid-xb3inwvi>Курс</label><select
+                                name="course" id="course" data-astro-cid-xb3inwvi>
+                            <option value="" disabled selected data-astro-cid-xb3inwvi>Курс</option>
+                            <option value="1" data-astro-cid-xb3inwvi>1</option>
+                            <option value="2" data-astro-cid-xb3inwvi>2</option>
+                            <option value="3" data-astro-cid-xb3inwvi>3</option>
+                            <option value="4" data-astro-cid-xb3inwvi>4</option>
+                        </select></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="birth_date" data-astro-cid-xb3inwvi>Дата
+                            народження</label><input type="text" name="birth_date" id="birth_date"
+                                                     placeholder="Дата народження" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="start_of_study"
+                                                                              data-astro-cid-xb3inwvi>Початок
+                            навчання</label><input type="text" name="start_of_study" id="start_of_study"
+                                                   placeholder="Початок навчання" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="completion_of_study"
+                                                                              data-astro-cid-xb3inwvi>Закінчення
+                            навчання</label><input type="text" name="completion_of_study" id="completion_of_study"
+                                                   placeholder="Закінчення навчання" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="passport_series"
+                                                                              data-astro-cid-xb3inwvi>Паспорт
+                            серія</label><input type="text" name="passport_series" id="passport_series"
+                                                placeholder="Паспорт серія" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="passport_number"
+                                                                              data-astro-cid-xb3inwvi>Паспорт
+                            номер</label><input type="text" name="passport_number" id="passport_number"
+                                                placeholder="Паспорт номер" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="passport_issued"
+                                                                              data-astro-cid-xb3inwvi>Паспорт
+                            виданий</label><input type="text" name="passport_issued" id="passport_issued"
+                                                  placeholder="Паспорт виданий" data-astro-cid-xb3inwvi></div>
+                        <div class="form_item" data-astro-cid-xb3inwvi><label for="identification_index"
+                                                                              data-astro-cid-xb3inwvi>Індекс
+                            інентифікації</label><input type="text" name="identification_index"
+                                                        id="identification_index"
+                                                        placeholder="Індекс інентифікації" data-astro-cid-xb3inwvi>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="files_btn" data-astro-cid-xb3inwvi>Відправити</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v3.1.4">
+    <title>Settlement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/_astro/form.ab5c1d8f.css"/>
+    <style>
+        .selected_room[data-astro-cid-xb3inwvi] {
+            width: 1250px;
+            background-color: #fff;
+            margin: 40px auto 20px;
+            border-radius: 10px;
+            padding: 26px;
+            font-style: normal;
+            font-family: Poppins, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 30px;
+            letter-spacing: -.48px;
+            position: relative
+        }
+
+        .selected_room_btn[data-astro-cid-xb3inwvi] {
+            display: inline-block;
+            padding: 10px 40px;
+            border-radius: 4px;
+            background: #4318FF;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            min-height: 44px;
+            position: absolute;
+            right: 26px;
+            top: 26px
+        }
+
+        .room_data[data-astro-cid-xb3inwvi] {
+            display: flex
+        }
+
+        .room_data_item[data-astro-cid-xb3inwvi] {
+            width: 105px;
+            margin-right: 50px;
+            font-size: 16px;
+            letter-spacing: -.32px;
+            line-height: 30px;
+            color: #a3aed0;
+            text-align: center
+        }
+
+        .room_data_item[data-astro-cid-xb3inwvi] span[data-astro-cid-xb3inwvi] {
+            color: #2b3674;
+            line-height: 24px
+        }
+
+        .room_data_item[data-astro-cid-xb3inwvi] .female[data-astro-cid-xb3inwvi] {
+            font-size: 13px;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 5px;
+            background: #FF1A63;
+            line-height: normal
+        }
+
+        .room_data_item[data-astro-cid-xb3inwvi] .male[data-astro-cid-xb3inwvi] {
+            font-size: 11px;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 5px;
+            background: #4318FF;
+            line-height: normal
+        }
+
+        .files_body[data-astro-cid-xb3inwvi] {
+            margin: auto;
+            width: 1250px;
+            background: #fff;
+            border-radius: 10px;
+            text-align: center;
+            padding: 70px 265px;
+            font-style: normal;
+            font-family: Poppins, sans-serif;
+            font-size: 16px;
+            font-weight: 700
+        }
+
+        .form_wrapper[data-astro-cid-xb3inwvi] {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .form_item[data-astro-cid-xb3inwvi] {
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            margin-bottom: 20px
+        }
+
+        .form_item[data-astro-cid-xb3inwvi] > label[data-astro-cid-xb3inwvi] {
+            line-height: 30px;
+            letter-spacing: -.32px;
+            text-transform: capitalize
+        }
+
+        .form_item[data-astro-cid-xb3inwvi] > input[data-astro-cid-xb3inwvi], .form_item[data-astro-cid-xb3inwvi] > select[data-astro-cid-xb3inwvi] {
+            height: 50px;
+            width: 330px;
+            padding: 10px;
+            font-weight: 500;
+            letter-spacing: -.32px;
+            border-radius: 5px;
+            background: #F4F7FE
+        }
+
+        .title[data-astro-cid-xb3inwvi] {
+            color: #2b3674;
+            font-size: 36px;
+            line-height: 45px;
+            letter-spacing: -.72px;
+            margin-bottom: 60px
+        }
+
+        .files_btn[data-astro-cid-xb3inwvi] {
+            padding: 10px 200px;
+            margin-top: 80px;
+            background: #4318FF;
+            border-radius: 4px;
+            color: #fff
+        }
+    </style>
+</head>
+<body>
+<header class="header" data-astro-cid-3ef6ksr2>
+    <div class="header_wrapper" data-astro-cid-3ef6ksr2>
+        <div class="header_logo" data-astro-cid-3ef6ksr2></div>
+        <div class="nav" data-astro-cid-3ef6ksr2><a href="/" class="nav-item active" data-astro-cid-3ef6ksr2>Головна</a><a
+                href="/" class="nav-item" data-astro-cid-3ef6ksr2>Обрати кімнату</a><a href="/" class="nav-item"
+                                                                                       data-astro-cid-3ef6ksr2>Завантаження
+            документів</a></div>
+    </div>
+</header>
+
+<div class="files_container" data-astro-cid-xb3inwvi>
+    <div class="files_body" data-astro-cid-xb3inwvi>
+        <form class="files_form" data-astro-cid-xb3inwvi><h1 class="title" data-astro-cid-xb3inwvi>Форма для
+            студентів</h1>
+            <div class="form_wrapper" data-astro-cid-xb3inwvi>
+                <div data-astro-cid-xb3inwvi>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="PIP"
+                                                                          data-astro-cid-xb3inwvi>ПІП</label><input
+                            type="text" name="PIP" id="PIP" placeholder="ПІП" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="gender" data-astro-cid-xb3inwvi>Дата
+                        народження</label><select name="gender" id="gender" data-astro-cid-xb3inwvi>
+                        <option value="" disabled selected data-astro-cid-xb3inwvi>Стать</option>
+                        <option value="female" data-astro-cid-xb3inwvi>Жінка</option>
+                        <option value="male" data-astro-cid-xb3inwvi>Чоловік</option>
+                        <option value="other" data-astro-cid-xb3inwvi>Інше</option>
+                    </select></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="group"
+                                                                          data-astro-cid-xb3inwvi>Група</label><input
+                            type="text" name="group" id="group" placeholder="Група" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="street"
+                                                                          data-astro-cid-xb3inwvi>Вулиця</label><input
+                            type="text" name="street" id="street" placeholder="Вулиця" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="house"
+                                                                          data-astro-cid-xb3inwvi>Дім</label><input
+                            type="text" name="house" id="house" placeholder="Дім" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="room"
+                                                                          data-astro-cid-xb3inwvi>Кімната</label><input
+                            type="text" name="room" id="room" placeholder="Кімната" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="dormitory" data-astro-cid-xb3inwvi>Гуртожиток</label><input
+                            type="text" name="dormitory" id="dormitory" placeholder="Гуртожиток"
+                            data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="faculty" data-astro-cid-xb3inwvi>Факультет</label><input
+                            type="text" name="faculty" id="faculty" placeholder="Факультет" data-astro-cid-xb3inwvi>
+                    </div>
+                </div>
+                <div data-astro-cid-xb3inwvi>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="course"
+                                                                          data-astro-cid-xb3inwvi>Курс</label><select
+                            name="course" id="course" data-astro-cid-xb3inwvi>
+                        <option value="" disabled selected data-astro-cid-xb3inwvi>Курс</option>
+                        <option value="1" data-astro-cid-xb3inwvi>1</option>
+                        <option value="2" data-astro-cid-xb3inwvi>2</option>
+                        <option value="3" data-astro-cid-xb3inwvi>3</option>
+                        <option value="4" data-astro-cid-xb3inwvi>4</option>
+                    </select></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="birth_date" data-astro-cid-xb3inwvi>Дата
+                        народження</label><input type="text" name="birth_date" id="birth_date"
+                                                 placeholder="Дата народження" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="start_of_study" data-astro-cid-xb3inwvi>Початок
+                        навчання</label><input type="text" name="start_of_study" id="start_of_study"
+                                               placeholder="Початок навчання" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="completion_of_study"
+                                                                          data-astro-cid-xb3inwvi>Закінчення
+                        навчання</label><input type="text" name="completion_of_study" id="completion_of_study"
+                                               placeholder="Закінчення навчання" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="passport_series" data-astro-cid-xb3inwvi>Паспорт
+                        серія</label><input type="text" name="passport_series" id="passport_series"
+                                            placeholder="Паспорт серія" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="passport_number" data-astro-cid-xb3inwvi>Паспорт
+                        номер</label><input type="text" name="passport_number" id="passport_number"
+                                            placeholder="Паспорт номер" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="passport_issued" data-astro-cid-xb3inwvi>Паспорт
+                        виданий</label><input type="text" name="passport_issued" id="passport_issued"
+                                              placeholder="Паспорт виданий" data-astro-cid-xb3inwvi></div>
+                    <div class="form_item" data-astro-cid-xb3inwvi><label for="identification_index"
+                                                                          data-astro-cid-xb3inwvi>Індекс
+                        інентифікації</label><input type="text" name="identification_index" id="identification_index"
+                                                    placeholder="Індекс інентифікації" data-astro-cid-xb3inwvi></div>
+                </div>
+            </div>
+            <button class="files_btn" data-astro-cid-xb3inwvi>Відправити</button>
         </form>
-
-
-    {% endblock %}
-
-
-
+    </div>
+</div>
+<footer class="footer" data-astro-cid-sz7xmlte>
+    <div class="footer_wrapper" data-astro-cid-sz7xmlte>
+        <div data-astro-cid-sz7xmlte>
+            <div class="footer_logo" data-astro-cid-sz7xmlte></div>
+            <ul class="footer_nav mt-[30px]" data-astro-cid-sz7xmlte>
+                <li class="nav-item" data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Головна</a></li>
+                <li class="nav-item" data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Обрати кімнату</a></li>
+                <li class="nav-item" data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Завантаження
+                    документів</a></li>
+            </ul>
+        </div>
+        <div data-astro-cid-sz7xmlte><h2 class="title" data-astro-cid-sz7xmlte>Контакти</h2>
+            <p class="number" data-astro-cid-sz7xmlte>+3546456468498</p>
+            <p class="number" data-astro-cid-sz7xmlte>+3546456468498</p></div>
+    </div>
+</footer>
+</body>
+</html>
 

@@ -624,3 +624,126 @@ body {
     background: #FFF;
     padding: 48px
 }
+
+.selected_room[data-astro-cid-xb3inwvi] {
+    width: 1250px;
+    background-color: #fff;
+    margin: 40px auto 20px;
+    border-radius: 10px;
+    padding: 26px;
+    font-style: normal;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -.48px;
+    position: relative
+}
+
+.selected_room_btn[data-astro-cid-xb3inwvi] {
+    display: inline-block;
+    padding: 10px 40px;
+    border-radius: 4px;
+    background: #4318FF;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    min-height: 44px;
+    position: absolute;
+    right: 26px;
+    top: 26px
+}
+
+.room_data[data-astro-cid-xb3inwvi] {
+    display: flex
+}
+
+.room_data_item[data-astro-cid-xb3inwvi] {
+    width: 105px;
+    margin-right: 50px;
+    font-size: 16px;
+    letter-spacing: -.32px;
+    line-height: 30px;
+    color: #a3aed0;
+    text-align: center
+}
+
+.room_data_item[data-astro-cid-xb3inwvi] span[data-astro-cid-xb3inwvi] {
+    color: #2b3674;
+    line-height: 24px
+}
+
+.room_data_item[data-astro-cid-xb3inwvi] .female[data-astro-cid-xb3inwvi] {
+    font-size: 13px;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 5px;
+    background: #FF1A63;
+    line-height: normal
+}
+
+.room_data_item[data-astro-cid-xb3inwvi] .male[data-astro-cid-xb3inwvi] {
+    font-size: 11px;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 5px;
+    background: #4318FF;
+    line-height: normal
+}
+
+.files_body[data-astro-cid-xb3inwvi] {
+    margin: auto;
+    width: 1250px;
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 70px 265px;
+    font-style: normal;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 700
+}
+
+.form_wrapper[data-astro-cid-xb3inwvi] {
+    display: flex;
+    justify-content: space-between
+}
+
+.form_item[data-astro-cid-xb3inwvi] {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 20px
+}
+
+.form_item[data-astro-cid-xb3inwvi] > label[data-astro-cid-xb3inwvi] {
+    line-height: 30px;
+    letter-spacing: -.32px;
+    text-transform: capitalize
+}
+
+.form_item[data-astro-cid-xb3inwvi] > input[data-astro-cid-xb3inwvi], .form_item[data-astro-cid-xb3inwvi] > select[data-astro-cid-xb3inwvi] {
+    height: 50px;
+    width: 330px;
+    padding: 10px;
+    font-weight: 500;
+    letter-spacing: -.32px;
+    border-radius: 5px;
+    background: #F4F7FE
+}
+
+.title[data-astro-cid-xb3inwvi] {
+    color: #2b3674;
+    font-size: 36px;
+    line-height: 45px;
+    letter-spacing: -.72px;
+    margin-bottom: 60px
+}
+
+.files_btn[data-astro-cid-xb3inwvi] {
+    padding: 10px 200px;
+    margin-top: 80px;
+    background: #4318FF;
+    border-radius: 4px;
+    color: #fff
+}

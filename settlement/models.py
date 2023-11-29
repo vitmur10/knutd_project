@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 
 class Hostel(models.Model):
@@ -17,20 +15,6 @@ class Hostel(models.Model):
         verbose_name_plural = "Гуртожитки"
 
 
-class StudentParens(models.Model):
-    IPIF = models.CharField(max_length=255, verbose_name="ПіП Батьків")
-    passport_series_f = models.CharField(max_length=10, verbose_name="Паспорт батьків серія")
-    passport_number_f = models.CharField(max_length=20, verbose_name="Паспорт батьків номер")
-    passport_issued_f = models.CharField(max_length=255, verbose_name="Паспорт батьків виданий")
-
-    def __str__(self):
-        return self.IPIF
-
-    class Meta:
-        verbose_name = "Батьки Студентів"
-        verbose_name_plural = "Студенти"
-
-
 class Student(models.Model):
     COURSE_CHOICES = [
         (1, '1 курс'),
@@ -41,7 +25,6 @@ class Student(models.Model):
     ]
     IPI = models.CharField(max_length=255, verbose_name="ПІП")
     date_of_birth = models.DateField(verbose_name="Дата народження")
-    parents = models.ForeignKey(StudentParens, on_delete=models.CASCADE, null=True, verbose_name="Батьки")
     group = models.CharField(max_length=10, verbose_name="Група")
     street = models.CharField(max_length=255, verbose_name="Вулиця")
     house = models.CharField(max_length=10, verbose_name="Дім")
@@ -65,6 +48,22 @@ class Student(models.Model):
         verbose_name_plural = "Студенти"
 
 
-@receiver(post_save, sender=Student)
-def process_student_data(sender, instance, **kwargs):
-    pass
+class AdminStudent(models.Model):
+    student_application = models.OneToOneField(Student, on_delete=models.CASCADE)
+    order = models.CharField(max_length=10, verbose_name="Кімната")
+
+
+class HostelSeven(models.Model):
+    room = models.CharField(max_length=10, verbose_name="Кімната")
+    bloc = models.CharField(max_length=10, verbose_name="Блок")
+    IPI = models.CharField(max_length=255, verbose_name="ПІП")
+    sex = models.CharField(max_length=10, verbose_name="Стать")
+    group = models.CharField(max_length=10, verbose_name="Група")
+    notes = models.CharField(max_length=255, verbose_name="Примітки")
+
+    def __str__(self):
+        return self.room
+
+    class Meta:
+        verbose_name = "Гуртожиток 7"
+        verbose_name_plural = "Гуртожиток 7"
