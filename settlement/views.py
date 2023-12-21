@@ -1,9 +1,10 @@
 from datetime import datetime
 from django.http import Http404, FileResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from docx import Document
 from docx.shared import Pt, Cm
 from django.urls import reverse
+from .forms import StudentForm
 
 from .models import Hostel, Student
 
@@ -44,11 +45,19 @@ def fill_order_document(template_path, output_path, data_to_fill, size, ):
     doc.save(output_path)
 
 
-def forms(request):
-    return render(request, 'swttlement/form.html')
-
-
 def add_student(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('settlement:four2')  # Перенаправити на сторінку зі списком студентів
+    else:
+        form = StudentForm()
+
+    return render(request, 'swttlement/form.html', {'form': form})
+
+
+def add_studentt(request):
     learning_from = "2021"  # Початок навчання
     training_to = "2025"  # Закінчення
     order_data_to_fill = {
@@ -113,8 +122,11 @@ def add_student(request):
         passport_issued=request.POST['passport_issued'],
         identification_code=request.POST['identification_index']
     )
-    return HttpResponseRedirect(reverse('settlement:add_student'))
+    return render(request, 'swttlement/seven_hostel/floor_1.html')
 
+
+def forms(request):
+    return render(request, 'swttlement/form.html')
 
 
 def dormitories(request):

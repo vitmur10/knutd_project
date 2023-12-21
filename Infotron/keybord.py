@@ -31,7 +31,7 @@ def create_inline_keyboard(text, f_id):
 
     menu_question = aiogram.types.InlineKeyboardMarkup()
     # Додавання кнопок для кожного запитання з вказаним типом і факультетом з бази даних
-    cur.execute("SELECT text FROM question_question WHERE type = %s AND faculty_id = %s", (text, f_id))
+    cur.execute("SELECT text FROM question_question WHERE type = %s and faculty_id = %s", (text, f_id))
     for reply in cur.fetchall():
         button = aiogram.types.InlineKeyboardButton(text=reply[0], callback_data=reply[0])
         menu_question.add(button)
@@ -54,7 +54,7 @@ def create_inline_keyboard_answer(text, f_id):
 
     keyboard = aiogram.types.InlineKeyboardMarkup()
     # Додавання кнопок для кожного запитання з вказаним типом і факультетом з бази даних
-    cur.execute("SELECT text FROM question_question WHERE type = %s AND faculty_id = %s", (text, f_id))
+    cur.execute("SELECT text FROM question_question WHERE type = %s and faculty_id = %s", (text, f_id))
     for reply in cur.fetchall():
         button = aiogram.types.InlineKeyboardButton(text=reply[0], callback_data=reply[0])
         keyboard.add(button)

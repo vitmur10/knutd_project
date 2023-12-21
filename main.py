@@ -313,7 +313,7 @@ async def answer_to_the_question(message: aiogram.types.Message):
             await message.answer('Ось список позицій які є',
                                  reply_markup=create_inline_keyboard_cafe(t[0]))
         con.commit()
-    except psycopg2.Error as e:
+    except pymysql.Error as e:
         print("Помилка бази даних:", e)
         con.rollback()
 
