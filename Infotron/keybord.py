@@ -3,6 +3,7 @@ import aiogram.types
 from Infotron.Const import *
 
 # Creating reply keyboard buttons
+schedule = aiogram.types.KeyboardButton(text="Розклад")
 button_finansy = aiogram.types.KeyboardButton(text="Фінанси")
 button_qat = aiogram.types.KeyboardButton(text="Питання щодо навчання")
 button_admissions = aiogram.types.KeyboardButton(text='Питання щодо вступу')
@@ -12,7 +13,8 @@ button_support = aiogram.types.KeyboardButton(cfg['button_new_question'])
 button_back = aiogram.types.KeyboardButton("Змінити факультет")
 # Creating a reply keyboard markup and adding buttons to it
 keyboard_menu = aiogram.types.ReplyKeyboardMarkup(resize_keyboard=True)
-keyboard_menu.add(button_mfaq).row(button_qat).add(button_finansy, button_admissions).add(button_support, button_back)
+keyboard_menu.row(schedule).add(button_mfaq, button_qat).add(button_finansy, button_admissions).add(button_support,
+                                                                                                    button_back)
 # Creating a reply keyboard markup for faculty selection
 menu_faculty = aiogram.types.ReplyKeyboardMarkup()
 # Adding buttons for each faculty from the database
@@ -31,7 +33,7 @@ def create_inline_keyboard(text, f_id):
 
     menu_question = aiogram.types.InlineKeyboardMarkup()
     # Додавання кнопок для кожного запитання з вказаним типом і факультетом з бази даних
-    cur.execute("SELECT text FROM question_question WHERE type = %s and faculty_id = %s", (text, f_id))
+    cur.execute("SELECT text FROM question_question WHERE type = ? and faculty_id = ?", (text, f_id))
     for reply in cur.fetchall():
         button = aiogram.types.InlineKeyboardButton(text=reply[0], callback_data=reply[0])
         menu_question.add(button)
@@ -54,7 +56,7 @@ def create_inline_keyboard_answer(text, f_id):
 
     keyboard = aiogram.types.InlineKeyboardMarkup()
     # Додавання кнопок для кожного запитання з вказаним типом і факультетом з бази даних
-    cur.execute("SELECT text FROM question_question WHERE type = %s and faculty_id = %s", (text, f_id))
+    cur.execute("SELECT text FROM question_question WHERE type = ? and faculty_id = ?", (text, f_id))
     for reply in cur.fetchall():
         button = aiogram.types.InlineKeyboardButton(text=reply[0], callback_data=reply[0])
         keyboard.add(button)
@@ -66,7 +68,7 @@ def create_inline_keyboard_cafe(text):
     """Створення внутрішнього клавішного макету для вибору запитань"""
 
     keyboard = aiogram.types.InlineKeyboardMarkup()
-    cur.execute("SELECT name, cost FROM cafe_student_product WHERE type_product_id = %s", (text,))
+    cur.execute("SELECT name, cost FROM cafe_student_product WHERE type_product_id = ?", (text,))
     for name, cost in cur.fetchall():
         button = aiogram.types.InlineKeyboardButton(text=f'{name} = {cost}грн.',
                                                     callback_data=f"product:{name}:{cost}")

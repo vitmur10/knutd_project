@@ -233,7 +233,8 @@ async def mute(message):
     elif mutetype == "д" or mutetype == "днів" or mutetype == "день":
         dt = datetime.now() + timedelta(days=muteint)
         timestamp = dt.timestamp()
-        await bot.restrict_chat_member(message.chat.id, message.reply_to_message.from_user.id, types.ChatPermissions(False),
+        await bot.restrict_chat_member(message.chat.id, message.reply_to_message.from_user.id,
+                                       types.ChatPermissions(False),
                                        timestamp)
     await message.reply(
         f' | <b>Рішення було прийняте:</b> {name1}\n | <b>Порушник:</b> <a href="tg://user?id={message.reply_to_message.from_user.id}">{message.reply_to_message.from_user.first_name}</a>\n⏰ | <b>Термін покарання:</b> {muteint} {mutetype}\n | <b>Причина:</b> {comment}',
@@ -296,10 +297,13 @@ async def answer_to_the_question(message: aiogram.types.Message):
             "SELECT id, name, instagram_link, tg_link, facebook_link, website_link FROM question_faculty")
         for row in cur:
             id, name, instagram_link, tg_link, facebook_link, website_link = row
-            list_social = {'Instagram': instagram_link,
-                           'Telegram': tg_link,
-                           'Facebook': facebook_link,
-                           'Cайт': website_link}
+            list_social = {
+                'Instagram': instagram_link,
+                'Telegram': tg_link,
+                'Facebook': facebook_link,
+                'Cайт': website_link,
+                'студентського самоврядування': 'https://sites.google.com/view/ssf-mkt-knutd/%D0%BE%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D0%B8-%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D1%83'
+            }
             for i in list_social:
                 button_social = aiogram.types.InlineKeyboardButton(text=i, url=list_social[i])
                 social_keybord.add(button_social)
@@ -313,7 +317,7 @@ async def answer_to_the_question(message: aiogram.types.Message):
             await message.answer('Ось список позицій які є',
                                  reply_markup=create_inline_keyboard_cafe(t[0]))
         con.commit()
-    except pymysql.Error as e:
+    except sqlite3.Error as e:
         print("Помилка бази даних:", e)
         con.rollback()
 
